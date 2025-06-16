@@ -1,0 +1,38 @@
+out
+dist
+node_modules
+.vscode-test/
+*.vsix
+.DS_Store
+
+# Test coverage reports
+coverage/
+*.lcov
+
+# Development files
+*.log
+*.tmp
+.env
+.env.local
+
+# Build artifacts
+*.tsbuildinfo
+
+# Editor files
+.vscode/settings.json
+
+# Development tools
+generate-images.html
+generate-images-guide.md
+commit.sh
+browser-test.html
+test-*.html
+test-*.js
+
+# Documentation drafts
+docs/
+_images/
+
+# Development settings
+example-settings.json
+

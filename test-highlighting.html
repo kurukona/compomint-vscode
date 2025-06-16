@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Compomint Highlighting</title>
+</head>
+<body>
+    <!-- Single line expressions -->
+    ##=test##
+   
+    ##-aaa##
+    
+    <!-- Empty expressions -->
+    ##!##
+    
+    ##=##
+    
+    <!-- Colon expressions -->
+    ##:directive##
+    
+    ##: multi
+    line directive
+    ##
+   
+    <!-- Multi-line expression with comment -->
+    ##* Comment 
+
+    ##
+
+    <!-- Multi-line code block -->
+    ##
+        let x = 5;
+        console.log(x);
+    ##
+
+    <!-- Another test -->
+    ##= user.name ##
+</body>
+</html>

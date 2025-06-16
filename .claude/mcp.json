@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-playwright"],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "config": {
+        "headless": true,
+        "browserType": "chromium",
+        "timeout": 5000,
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        }
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem"],
+      "config": {
+        "allowedPaths": ["/home/user/projects", "/tmp"]
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  },
+  "defaultTimeout": 60000,
+  "logging": {
+    "level": "info",
+    "output": "~/.claude/logs/mcp.log"
+  }
+}

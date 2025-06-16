@@ -1,0 +1,61 @@
+# VS Code configuration
+.vscode/**
+.vscode-test/**
+
+# Development source files
+src/**
+
+# Build and configuration files
+webpack.config.js
+tsconfig.json
+jest.config.js
+eslint.config.mjs
+.eslintrc.js
+.prettierrc
+
+.claude/
+_images/
+
+# Testing files
+tests/**
+**/__mocks__/**
+**/*.test.js
+**/*.test.ts
+coverage/**
+
+# Documentation and guides (keep only README.md)
+docs/**
+CLAUDE.md
+generate-images.html
+generate-images-guide.md
+images/README.txt
+
+# Development dependencies
+node_modules/**
+package-lock.json
+
+# Development and build artifacts
+**/*.map
+**/*.ts
+dist/**/*.map
+
+# Test and example files
+test-*.html
+test-*.js
+browser-test.html
+example-settings.json
+
+# Development scripts
+commit.sh
+
+# Version control
+.gitignore
+.yarnrc
+
+# Generated packages
+*.vsix
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store

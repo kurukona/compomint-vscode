@@ -1,0 +1,423 @@
+{
+  "name": "compomint-vscode",
+  "displayName": "Compomint Template Support",
+  "description": "Full-featured VS Code support for Compomint: syntax highlighting, live preview, snippets, and smart template management",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "publisher": "compomint",
+  "author": {
+    "name": "Compomint Team"
+  },
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/kurukona/compomint-vscode/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kurukona/compomint-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kurukona/compomint-vscode/issues"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Extension Packs",
+    "Other"
+  ],
+  "keywords": [
+    "compomint",
+    "template",
+    "component",
+    "html",
+    "javascript",
+    "web-development",
+    "syntax-highlighting",
+    "snippets",
+    "preview",
+    "template-engine",
+    "component-library",
+    "frontend",
+    "ui-components",
+    "developer-tools",
+    "web-framework"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascript"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [],
+    "grammars": [
+      {
+        "scopeName": "text.html.compomint",
+        "path": "./syntaxes/compomint.tmLanguage.json",
+        "injectTo": [
+          "text.html.basic",
+          "text.html.derivative"
+        ]
+      }
+    ],
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets/compomint-snippets.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/compomint-snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/compomint-snippets.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "compomint-explorer",
+          "title": "Compomint",
+          "icon": "images/icon.png"
+        }
+      ]
+    },
+    "views": {
+      "compomint-explorer": [
+        {
+          "id": "compomint.filterView",
+          "name": "Filter",
+          "type": "webview"
+        },
+        {
+          "id": "compomint.templatesView",
+          "name": "Templates",
+          "type": "tree"
+        },
+        {
+          "id": "compomint.resourcesView",
+          "name": "Resources",
+          "type": "webview"
+        },
+        {
+          "id": "compomint.previewView",
+          "name": "Template Preview",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "compomint.createTemplate",
+        "title": "Compomint: Create New Template"
+      },
+      {
+        "command": "compomint.refreshTemplates",
+        "title": "Refresh Templates",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "compomint.previewTemplateInSidebar",
+        "title": "Preview in Sidebar",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "compomint.openFile",
+        "title": "Open File",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "compomint.previewTemplateFromEditor",
+        "title": "Compomint: Preview Template at Cursor"
+      },
+      {
+        "command": "compomint.createTemplateInFile",
+        "title": "Create New Template in this File",
+        "icon": "$(file-add)"
+      },
+      {
+        "command": "compomint.createTemplateInDirectory",
+        "title": "Create New Template in this Directory",
+        "icon": "$(file-add)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "compomint.refreshTemplates",
+          "when": "view == compomint.templatesView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "compomint.previewTemplateInSidebar",
+          "when": "view == compomint.templatesView && viewItem == template",
+          "group": "inline"
+        },
+        {
+          "command": "compomint.openFile",
+          "when": "view == compomint.templatesView && (viewItem == template || viewItem == file)",
+          "group": "inline"
+        },
+        {
+          "command": "compomint.previewTemplateInSidebar",
+          "when": "view == compomint.templatesView && viewItem == template"
+        },
+        {
+          "command": "compomint.openFile",
+          "when": "view == compomint.templatesView && viewItem == template"
+        },
+        {
+          "command": "compomint.openFile",
+          "when": "view == compomint.templatesView && viewItem == file"
+        },
+        {
+          "command": "compomint.createTemplateInFile",
+          "when": "view == compomint.templatesView && viewItem == file"
+        },
+        {
+          "command": "compomint.createTemplateInDirectory",
+          "when": "view == compomint.templatesView && viewItem == directory"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "compomint.previewTemplateFromEditor",
+          "when": "resourceExtname == .html",
+          "group": "compomint"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Compomint",
+      "properties": {
+        "compomint.validateOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate Compomint templates on save"
+        },
+        "compomint.enableValidation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Compomint template validation"
+        },
+        "compomint.enableSyntaxHighlighting": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Compomint syntax highlighting (requires VS Code reload to take effect)"
+        },
+        "compomint.fileExtensionFilter": {
+          "type": "string",
+          "default": "html,htm",
+          "description": "File extensions to search for templates (comma-separated, e.g., 'html,htm,php')"
+        },
+        "compomint.templateIdFilter": {
+          "type": "string",
+          "default": "",
+          "description": "Template ID filter pattern (e.g., 'plin-*,kks-*' for multiple patterns)"
+        },
+        "compomint.resources": {
+          "type": "array",
+          "default": [],
+          "description": "List of CSS/JS resources for template preview",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "URL of the resource"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "css",
+                  "js"
+                ],
+                "description": "Type of resource"
+              },
+              "enabled": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether the resource is enabled"
+              },
+              "name": {
+                "type": "string",
+                "description": "Display name for the resource"
+              }
+            },
+            "required": [
+              "url",
+              "type"
+            ]
+          }
+        },
+        "compomint.availableLanguages": {
+          "type": "array",
+          "default": [
+            "en",
+            "ko",
+            "ja",
+            "zh"
+          ],
+          "description": "Available languages for template preview",
+          "items": {
+            "type": "string",
+            "description": "Language code (e.g., en, ko, ja, zh)"
+          }
+        },
+        "compomint.currentLanguage": {
+          "type": "string",
+          "default": "en",
+          "description": "Currently selected language for template preview"
+        },
+        "compomint.libraryUrl": {
+          "type": "string",
+          "default": "https://cdn.jsdelivr.net/gh/kurukona/compomint@latest/dist/compomint.esm.min.js",
+          "description": "URL of the Compomint library for template preview"
+        },
+        "compomint.decoratorColors": {
+          "type": "object",
+          "default": {
+            "interpolation": "rgba(255, 99, 132, 0.35)",
+            "escape": "rgba(255, 165, 0, 0.2)",
+            "element": "rgba(255, 140, 0, 0.3)",
+            "preEval": "rgba(100, 200, 255, 0.1)",
+            "lazyEval": "rgba(153, 102, 255, 0.1)",
+            "comment": "rgba(106, 153, 85, 0.2)",
+            "colon": "rgba(255, 20, 147, 0.2)",
+            "code": "rgba(255, 255, 0, 0.1)"
+          },
+          "description": "Background colors for different Compomint expression types",
+          "properties": {
+            "interpolation": {
+              "type": "string",
+              "description": "Color for ##=value## expressions"
+            },
+            "escape": {
+              "type": "string",
+              "description": "Color for ##-value## expressions"
+            },
+            "element": {
+              "type": "string",
+              "description": "Color for ##%element## expressions"
+            },
+            "preEval": {
+              "type": "string",
+              "description": "Color for ##!code## expressions"
+            },
+            "lazyEval": {
+              "type": "string",
+              "description": "Color for ###code## expressions"
+            },
+            "comment": {
+              "type": "string",
+              "description": "Color for ##*comment## expressions"
+            },
+            "colon": {
+              "type": "string",
+              "description": "Color for ##:directive## expressions"
+            },
+            "code": {
+              "type": "string",
+              "description": "Color for ##code## expressions"
+            }
+          }
+        },
+        "compomint.overviewRulerColors": {
+          "type": "object",
+          "default": {
+            "interpolation": "rgba(255, 99, 132, 0.8)",
+            "escape": "rgba(255, 165, 0, 0.8)",
+            "element": "rgba(255, 140, 0, 1.0)",
+            "preEval": "rgba(100, 200, 255, 0.8)",
+            "lazyEval": "rgba(153, 102, 255, 0.8)",
+            "comment": "rgba(106, 153, 85, 0.6)",
+            "colon": "rgba(255, 20, 147, 0.8)",
+            "code": "rgba(255, 255, 0, 0.8)"
+          },
+          "description": "Overview ruler colors for different Compomint expression types",
+          "properties": {
+            "interpolation": {
+              "type": "string",
+              "description": "Overview ruler color for ##=value## expressions"
+            },
+            "escape": {
+              "type": "string",
+              "description": "Overview ruler color for ##-value## expressions"
+            },
+            "element": {
+              "type": "string",
+              "description": "Overview ruler color for ##%element## expressions"
+            },
+            "preEval": {
+              "type": "string",
+              "description": "Overview ruler color for ##!code## expressions"
+            },
+            "lazyEval": {
+              "type": "string",
+              "description": "Overview ruler color for ###code## expressions"
+            },
+            "comment": {
+              "type": "string",
+              "description": "Overview ruler color for ##*comment## expressions"
+            },
+            "colon": {
+              "type": "string",
+              "description": "Overview ruler color for ##:directive## expressions"
+            },
+            "code": {
+              "type": "string",
+              "description": "Overview ruler color for ##code## expressions"
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "lint:check": "eslint src/ --max-warnings 0",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:vscode": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@types/glob": "^7.1.3",
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^14.14.37",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
+    "@typescript-eslint/parser": "^8.33.0",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "glob": "^7.1.7",
+    "jest": "^29.7.0",
+    "mocha": "^8.3.2",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.3.4",
+    "ts-loader": "^9.0.0",
+    "typescript": "^4.2.4",
+    "vscode-test": "^1.5.2",
+    "webpack": "^5.34.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "vsce": "^2.15.0"
+  }
+}

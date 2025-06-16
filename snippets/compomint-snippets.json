@@ -1,0 +1,324 @@
+{
+  "Compomint Simple Template": {
+    "prefix": "<template - Simple",
+    "body": [
+      "<template id=\"${1:templateId}\">",
+      "  ##",
+      "    // This is the main JavaScript block. Code here runs during template rendering.",
+      "    // Write your component logic here",
+      "    $2",
+      "  ##",
+      "  <div class=\"${1:templateId}\">",
+      "    ##* This is the HTML structure of the component. ##",
+      "    $0",
+      "  </div>",
+      "</template>"
+    ],
+    "description": "Create a basic Compomint template"
+  },
+  "Compomint Basic Template": {
+    "prefix": "<template - Basic",
+    "body": [
+      "<template id=\"${1:templateId}\">",
+      "  <style id=\"style-${1:templateId}\">",
+      "    .${1:templateId} {",
+      "      /* Add your styles here */",
+      "      $3",
+      "    }",
+      "  </style>",
+      "  ##",
+      "    // This is the main JavaScript block. Code here runs during template rendering.",
+      "    // Write your component logic here",
+      "    $2",
+      "  ##",
+      "  <div class=\"${1:templateId}\">",
+      "    ##* This is the HTML structure of the component. ##",
+      "    $0",
+      "  </div>",
+      "</template>"
+    ],
+    "description": "Create a basic Compomint template"
+  },
+  "Compomint i18n Template": {
+    "prefix": "<template - I18n",
+    "body": [
+      "<template id=\"${1:templateId}\">",
+      "  <style id=\"style-${1:templateId}\">",
+      "    .${1:templateId} {",
+      "      /* Add your styles here */",
+      "      $3",
+      "    }",
+      "  </style>",
+      "  ##!",
+      "    // This is the pre-evaluation block. Code here runs before the template is rendered.",
+      "    // i18n definitions (pre-evaluation)",
+      "    compomint.addI18ns({",
+      "      // Define your internationalization strings here.",
+      "      '${1:templateId}': {",
+      "        'title': {",
+      "          'en': '${4:Title}',",
+      "          'ja': '${5:タイトル}'",
+      "          'ko': '${6:제목}'",
+      "          'zh': '${7:标题}'",
+      "        }",
+      "      }",
+      "    });",
+      "  ##",
+      "  ##",
+      "    // This is the main JavaScript block. Code here runs during template rendering.",
+      "    // Write your component logic here",
+      "    $2",
+      "  ##",
+      "  <div class=\"${1:templateId}\">",
+      "    ##* This is the HTML structure of the component. ##",
+      "    $0",
+      "  </div>",
+      "</template>"
+    ],
+    "description": "Create a basic Compomint template"
+  },
+  "Compomint Comprehensive Template": {
+    "prefix": "<template - Comprehensive",
+    "body": [
+      "<template id=\"${1:templateId}\">",
+      "  <style id=\"style-${1:templateId}\">",
+      "    .${1:templateId} {",
+      "      /* Add your styles here */",
+      "      $3",
+      "    }",
+      "  </style>",
+      "  ##!",
+      "    // This is the pre-evaluation block. Code here runs before the template is rendered.",
+      "    compomint.addI18ns({",
+      "      // Define your internationalization strings here.",
+      "      '${1:templateId}': {",
+      "        'title': {",
+      "          'en': '${4:Title}',",
+      "          'ja': '${5:タイトル}'",
+      "          'ko': '${6:제목}'",
+      "          'zh': '${7:标题}'",
+      "        }",
+      "      }",
+      "    });",
+      "  ##",
+      "  ##",
+      "    // This is the main JavaScript block. Code here runs during template rendering.",
+      "    // Write your component logic here",
+      "    $2",
+      "  ##",
+      "  <div class=\"${1:templateId}\">",
+      "    ##* This is the HTML structure of the component. ##",
+      "    <h3>##=i18n.title##</h3>",
+      "    ${0}",
+      "  </div>",
+      "  ###",
+      "    // Code that runs after render",
+      "    // Write your post-render code here",
+      "    $8",
+      "  ##",
+      "</template>"
+    ],
+    "description": "Create a comprehensive Compomint template with all sections"
+  },
+  "Compomint addTmpl Definition": {
+    "prefix": "compomint.addTmpl",
+    "body": [
+      "compomint.addTmpl('${1:templateId}', `",
+      "  <style id=\"style-${1:templateId}\">",
+      "    .${1:templateId} {",
+      "      $3",
+      "    }",
+      "  </style>",
+      "  ##",
+      "    // This is the main JavaScript block. Code here runs during template rendering.",
+      "    // Write your component logic here",
+      "    $2",
+      "  ##",
+      "  <div class=\"${1:templateId}\">",
+      "    ##* This is the HTML structure of the component. ##",
+      "    $0",
+      "  </div>",
+      "`);"
+    ],
+    "description": "Compomint addTmpl definition"
+  },
+  "Compomint addTmpls Definition": {
+    "prefix": "compomint.addTmpls",
+    "body": [
+      "compomint.addTmpls(`",
+      "<template id=\"${1:templateId}\">",
+      "  <style id=\"style-${1:templateId}\">",
+      "    .${1:templateId} {",
+      "      $3",
+      "    }",
+      "  </style>",
+      "  ##",
+      "    // This is the main JavaScript block. Code here runs during template rendering.",
+      "    // Write your component logic here",
+      "    $2",
+      "  ##",
+      "  <div class=\"${1:templateId}\">",
+      "    ##* This is the HTML structure of the component. ##",
+      "    $0",
+      "  </div>",
+      "</template>`",
+      ");"
+    ],
+    "description": "Compomint addTmpls definition"
+  },
+  "Compomint addTmplByUrl Definition": {
+    "prefix": "compomint.addTmplByUrl",
+    "body": [
+      "compomint.addTmplByUrl([",
+      "  // Specify the URLs of your template files here.",
+      "  '${1:/path/to/template1.html}',",
+      "], () => {",
+      "  // Code to run after templates are loaded",
+      "  $2",
+      "});"
+    ],
+    "description": "Compomint addTmplByUrl definition"
+  },
+  "Compomint i18n Definition": {
+    "prefix": "compomint.addI18ns",
+    "body": [
+      "compomint.addI18ns({",
+      "  // Define your internationalization strings here.",
+      "  '${1:templateId}': {",
+      "    '${2:key}': {",
+      "      'en': '${3:English text}',",
+      "      'ja': '${4:日本語テキスト}'",
+      "      'ko': '${5:한국어 텍스트}'",
+      "      'zh': '${6:中文文本}'",
+      "    }",
+      "  }",
+      "});"
+    ],
+    "description": "Compomint i18n definition"
+  },
+  "Compomint Pre-evaluation i18n Definition": {
+    "prefix": "##!i18n",
+    "body": [
+      "##!",
+      "  // This is the pre-evaluation block. Code here runs before the template is rendered.",
+      "  compomint.addI18ns({",
+      "    // Define your internationalization strings here.",
+      "    '${1:templateId}': {",
+      "      '${2:key}': {",
+      "        'en': '${3:English text}',",
+      "        'ja': '${4:日本語テキスト}'",
+      "        'ko': '${5:한국어 텍스트}'",
+      "        'zh': '${6:中文文本}'",
+      "      }",
+      "    }",
+      "  });",
+      "##"
+    ],
+    "description": "Compomint i18n definition"
+  },
+  "Compomint Interpolation": {
+    "prefix": "##=",
+    "body": ["##=${1:data.value}##"],
+    "description": "Compomint data interpolation (outputs raw data)"
+  },
+  "Compomint HTML Escape": {
+    "prefix": "##-",
+    "body": ["##-${1:data.value}##"],
+    "description": "Compomint HTML escape output (escapes HTML characters)"
+  },
+  "Compomint Element Insertion": {
+    "prefix": "##%",
+    "body": ["##%${1:component}##"],
+    "description": "Compomint element insertion (inserts another component)"
+  },
+  "Compomint Pre-evaluation": {
+    "prefix": "##!",
+    "body": [
+      "##!",
+      "  // This is the pre-evaluation block. Code here runs before the template is rendered.",
+      "  $0",
+      "##"
+    ],
+    "description": "Compomint pre-evaluation block"
+  },
+  "Compomint JavaScript Block": {
+    "prefix": "##",
+    "body": [
+      "##",
+      "  // This is the main JavaScript block. Code here runs during template rendering.",
+      "  // Write your component logic here",
+      "  $0",
+      "##"
+    ],
+    "description": "Compomint JavaScript code block"
+  },
+  "Compomint Lazy Evaluation": {
+    "prefix": "###",
+    "body": [
+      "###",
+      "  // Code that runs after render. Write your post-render code here.",
+      "  $0",
+      "##"
+    ],
+    "description": "Compomint lazy evaluation block (runs after template rendering)"
+  },
+  "Compomint Comment": {
+    "prefix": "##*",
+    "body": ["##* ${1:Comment} ##"],
+    "description": "Compomint comment"
+  },
+  "Compomint If Statement": {
+    "prefix": "##if (${1:condition}) {##",
+    "body": ["##if (${1:condition}) {##", "  ##*content##", "  $0", "##}##"],
+    "description": "Compomint if statement"
+  },
+  "Compomint If-Else Statement": {
+    "prefix": "##if-else",
+    "body": [
+      "##*Conditional rendering based on a condition.##",
+      "##if (${1:condition}) {##",
+      "  ${2:// true content}",
+      "##} else {##",
+      "  ${3:// false content}",
+      "##}##"
+    ],
+    "description": "Compomint if-else statement"
+  },
+  "Compomint ForEach Loop": {
+    "prefix": "##foreach",
+    "body": [
+      "##*Iterate over an array or iterable.##",
+      "##${1:data.items}.forEach(${2:item} => {##",
+      "  ${3:// loop content}",
+      "##})##"
+    ],
+    "description": "Compomint forEach loop"
+  },
+  "Compomint Event Handler": {
+    "prefix": "data-co-event=\"##:{${1:click}: ${2:handler}}##\"",
+    "body": ["data-co-event=\"##:{${1:click}: ${2:handler}}##\""],
+    "description": "Compomint event handler attribute (binds DOM events to component logic)"
+  },
+  "Compomint Named Element": {
+    "prefix": "data-co-named-element=\"##:'${1:elementName}'##\"",
+    "body": ["data-co-named-element=\"##:'${1:elementName}'##\""],
+    "description": "Compomint named element reference"
+  },
+  "Compomint Element Reference": {
+    "prefix": "data-co-element-ref=\"##:${1:variableName}##\"",
+    "body": ["data-co-element-ref=\"##:${1:variableName}##\""],
+    "description": "Compomint element variable reference (assigns a DOM element to a variable in the component logic)"
+  },
+  "Compomint Properties": {
+    "prefix": "data-co-props=\"##:{${1:class}: '${2:className}', ${3:disabled}: ${4:data.disabled}}##\"",
+    "body": [
+      "data-co-props=\"##:{${1:class}: '${2:className}', ${3:disabled}: ${4:data.disabled}}##\""
+    ],
+    "description": "Compomint element properties (sets multiple attributes on an element)"
+  },
+  "Compomint Load Handler": {
+    "prefix": "data-co-load=\"##:${1:handler}::${2:data.customData}##\"",
+    "body": ["data-co-load=\"##:${1:handler}::${2:data.customData}##\""],
+    "description": "Compomint load handler (executes a function when element is loaded into the DOM)"
+  }
+}

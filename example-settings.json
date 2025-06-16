@@ -1,0 +1,22 @@
+{
+  "compomint.decoratorColors": {
+    "interpolation": "rgba(255, 99, 132, 0.4)",
+    "escape": "rgba(255, 165, 0, 0.3)",
+    "element": "rgba(255, 140, 0, 0.4)",
+    "preEval": "rgba(100, 200, 255, 0.1)",
+    "lazyEval": "rgba(153, 102, 255, 0.1)",
+    "comment": "rgba(106, 153, 85, 0.1)",
+    "colon": "rgba(255, 20, 147, 0.3)",
+    "code": "rgba(255, 255, 0, 0.1)"
+  },
+  "compomint.overviewRulerColors": {
+    "interpolation": "rgba(255, 99, 132, 1.0)",
+    "escape": "rgba(255, 165, 0, 1.0)",
+    "element": "rgba(255, 140, 0, 1.0)",
+    "preEval": "rgba(100, 200, 255, 1.0)",
+    "lazyEval": "rgba(153, 102, 255, 1.0)",
+    "comment": "rgba(106, 153, 85, 0.8)",
+    "colon": "rgba(255, 20, 147, 1.0)",
+    "code": "rgba(255, 255, 0, 1.0)"
+  }
+}

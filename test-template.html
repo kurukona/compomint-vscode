@@ -74,9 +74,23 @@
           }
         });
         
-        // Load the template
-        const templateResponse = await fetch('/Users/choish/workspaces/kurukona/kurukona-com-web/___plin-DownloadAppsGridView.html');
-        const templateHtml = await templateResponse.text();
+        // Load the template (example - replace with your template path)
+        const templateHtml = `
+        <template id="plin-DownloadAppsGridView">
+          ##!
+            const data = data || { apps: [], classes: {} };
+          ##
+          <div class="##=data.classes.grid##">
+            ##data.apps.forEach(app => {##
+              <div class="##=data.classes.card##">
+                <h3>##=compomint.i18n(templateId + '.' + app.type)##</h3>
+                <p>##=compomint.i18n(templateId + '.' + app.type + '_description')##</p>
+                <a href="##=app.downloadUrl##">Download</a>
+              </div>
+            ##});##
+          </div>
+        </template>
+        `;
         
         // Register the template
         compomint.registerTemplate(templateHtml);
@@ -114,4 +128,3 @@
     </script>
 </body>
 </html>
-</template>
